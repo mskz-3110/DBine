@@ -1,0 +1,62 @@
+digraph {
+  graph [
+    fontname = "Yu Mincho Demibold"
+    fontcolor = "black"
+    color = "black"
+    bgcolor = "white"
+    dpi = 350
+    margin = -0.01
+    rankdir = LR
+  ]
+  node [
+    fontname = "Yu Mincho Demibold"
+    fontcolor = "black"
+    shape = none
+  ]
+  edge [
+    fontname = "Yu Mincho Demibold"
+    fontcolor = "black"
+    color = "gray:white:gray"
+    dir = none
+  ]
+  
+  subgraph cluster_Database0 {
+    label = "Database0"
+    labeljust = l
+  
+    Table0 [label = <<table border="1" cellspacing="0" cellpadding="0" color="gray" bgcolor="gray">
+      <tr><td colspan="2"><b>Table0</b></td></tr>
+      <tr><td bgcolor="white" cellpadding="2" port="id"> id </td><td bgcolor="white" cellpadding="2" align="left"><i>INT</i> </td></tr>
+      <tr><td bgcolor="white" cellpadding="2" port="table1_id"> table1_id </td><td bgcolor="white" cellpadding="2" align="left"><i>INT</i> </td></tr>
+      <tr><td bgcolor="white" cellpadding="2" port="table2_id"> table2_id </td><td bgcolor="white" cellpadding="2" align="left"><i>INT</i> </td></tr>
+      <tr><td bgcolor="white" cellpadding="2" port="table3_id"> table3_id </td><td bgcolor="white" cellpadding="2" align="left"><i>INT</i> </td></tr>
+    </table>>]
+  }
+  subgraph cluster_Database1 {
+    label = "Database1"
+    labeljust = l
+  
+    Table1 [label = <<table border="1" cellspacing="0" cellpadding="0" color="gray" bgcolor="gray">
+      <tr><td colspan="2"><b>Table1</b></td></tr>
+      <tr><td bgcolor="white" cellpadding="2" port="id"> id </td><td bgcolor="white" cellpadding="2" align="left"><i>INT</i> </td></tr>
+      <tr><td bgcolor="white" cellpadding="2" port="name"> name </td><td bgcolor="white" cellpadding="2" align="left"><i>VARCHAR</i> </td></tr>
+      <tr><td bgcolor="white" cellpadding="2" port="table2_id"> table2_id </td><td bgcolor="white" cellpadding="2" align="left"><i>INT</i> </td></tr>
+      <tr><td bgcolor="white" cellpadding="2" port="table3_id"> table3_id </td><td bgcolor="white" cellpadding="2" align="left"><i>INT</i> </td></tr>
+    </table>>]
+    Table2 [label = <<table border="1" cellspacing="0" cellpadding="0" color="gray" bgcolor="gray">
+      <tr><td colspan="2"><b>Table2</b></td></tr>
+      <tr><td bgcolor="white" cellpadding="2" port="id"> id </td><td bgcolor="white" cellpadding="2" align="left"><i>INT</i> </td></tr>
+      <tr><td bgcolor="white" cellpadding="2" port="name"> name </td><td bgcolor="white" cellpadding="2" align="left"><i>VARCHAR</i> </td></tr>
+    </table>>]
+    Table3 [label = <<table border="1" cellspacing="0" cellpadding="0" color="gray" bgcolor="gray">
+      <tr><td colspan="2"><b>Table3</b></td></tr>
+      <tr><td bgcolor="white" cellpadding="2" port="id"> id </td><td bgcolor="white" cellpadding="2" align="left"><i>INT</i> </td></tr>
+      <tr><td bgcolor="white" cellpadding="2" port="name"> name </td><td bgcolor="white" cellpadding="2" align="left"><i>VARCHAR</i> </td></tr>
+    </table>>]
+  }
+  Table0:table1_id -> Table1:id
+  Table0:table2_id -> Table2:id
+  Table0:table3_id -> Table3:id
+  Table1:table2_id -> Table2:id
+  Table1:table3_id -> Table3:id
+}
